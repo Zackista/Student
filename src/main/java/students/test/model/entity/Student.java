@@ -7,24 +7,33 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Date;
 
+@Data
 @Entity
-@Table(name = "tblUsuario",  schema="public")
+@Table(name = "tbl_student",  schema="public")
 public class Student {
     @Id
-    @Column(name = "vchRut")
+    @Column(name = "vchrut")
     String rut;
 
-    @Column(name = "vchNombre")
+    @Column(name = "vchnombre")
     String nombre;
 
-    @Column(name = "vchEmail")
+    @Column(name = "vchemail")
     String email;
 
-    @Column(name = "intEdad")
-    Number edad;
+    @Column(name = "intedad")
+    Integer edad;
 
-    @Column(name = "dtFechaNacimiento")
-    LocalDate fechaNaciemiento;
+    @Column(name = "dtfechanacimiento")
+    Date fechaNaciemiento;
+
+    @Column(name = "dtmfechacreacion")
+    Timestamp fechacreacion;
+
+    @Column(name = "dtmfechaactualizacion")
+    Timestamp fechaactualizacion;
 }
