@@ -15,6 +15,7 @@ import java.util.Date;
 @Entity
 @Table(name = "tbl_student",  schema="public")
 public class Student {
+
     @Id
     @Column(name = "vchrut")
     String rut;
@@ -31,9 +32,9 @@ public class Student {
     @Column(name = "dtfechanacimiento")
     Date fechaNaciemiento;
 
-    @Column(name = "dtmfechacreacion")
-    Timestamp fechacreacion;
+    @Column(name = "dtmfechacreacion", columnDefinition = "default now()")
+    Timestamp fechacreacion = new Timestamp(System.currentTimeMillis());
 
-    @Column(name = "dtmfechaactualizacion")
-    Timestamp fechaactualizacion;
+    @Column(name = "dtmfechaactualizacion", columnDefinition = "default now()")
+    Timestamp fechaactualizacion = new Timestamp(System.currentTimeMillis());;
 }
