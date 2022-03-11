@@ -1,6 +1,7 @@
 package students.test.service;
 
 import students.test.model.entity.Student;
+import students.test.model.entity.response.ResponseDefault;
 
 import java.util.List;
 
@@ -8,5 +9,5 @@ import java.util.List;
 public interface StudentService {
     List<Student> getStudent();
 
-    void registerStudent(Student student);
+    ResponseDefault registerStudent(Student student);
 }

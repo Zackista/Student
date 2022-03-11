@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import students.test.model.entity.Student;
+import students.test.model.entity.response.GetStudentResponse;
+import students.test.model.entity.response.ResponseDefault;
 import students.test.service.StudentService;
 
 import java.util.List;
@@ -22,7 +24,7 @@ public class studentController {
     }
 
     @PostMapping("registerStudent")
-    public void registerStudent(@RequestBody Student student){
-        studentService.registerStudent(student);
+    public ResponseEntity<ResponseDefault> registerStudent(@RequestBody Student student){
+        return new ResponseEntity<>(studentService.registerStudent(student),HttpStatus.OK);
     }
 }

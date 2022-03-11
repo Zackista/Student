@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import students.test.model.entity.Student;
+import students.test.model.entity.response.ResponseDefault;
+import students.test.model.entity.response.ServiceStatus;
 import students.test.repository.StudentRepository;
 import students.test.service.StudentService;
 
@@ -25,11 +27,20 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAll();
     }
 
-    public void registerStudent(Student student){
+    public ResponseDefault registerStudent(Student student){
+
+        ResponseDefault responseDefault = new ResponseDefault();
+        ServiceStatus status = new ServiceStatus();
+
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if(studentOptional.isPresent()){
             throw new IllegalStateException("email ya existente");
         }
         studentRepository.save(student);
+        status.setCode("200");
+        status.setDescription("estudiante ingresado");
+        responseDefault.setService(status);
+
+        return responseDefault;
     }
 }
