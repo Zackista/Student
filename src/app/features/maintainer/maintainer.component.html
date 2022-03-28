@@ -1,0 +1,16 @@
+<div class="d-flex align-items-start">
+    <nav class="nav nav-pills flex-column mt-3">
+        <li class="nav-item mb-3">
+            <a class="nav-link active" (click)="showGet()">Active</a>
+            <app-get *ngIf="isGet"></app-get>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link active" (click)="showGet()">Active</a>
+            <app-update-student *ngIf="isGet"></app-update-student>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link active" (click)="showGet()">Active</a>
+            <app-create-student *ngIf="isGet"></app-create-student>
+        </li>
+    </nav>
+</div>

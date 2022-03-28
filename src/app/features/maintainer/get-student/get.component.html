@@ -1,0 +1,32 @@
+<div class="container mt-4"> 
+    <div class="row">
+      <h3>Listado de estudiantes en Componente get</h3>
+      <button class="btn btn-primary ml-auto" (click)="toggle()">Toggle</button>
+    </div>
+    <br>
+    <table class="table" *ngIf="isToggle">
+      <thead>
+        <th>Nr°</th>
+        <th>Nombre</th>
+        <th>Carrera</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentList; let i = index" [ngSwitch]="student.status">
+          <td>{{i + 1}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.degree}}</td>
+          <td>
+            <span *ngSwitchCase="'Promocionado'" class="badge bg-success">
+              {{student.status}}
+            </span>
+            <span *ngSwitchCase="'Reprobado'" class="badge bg-danger">
+              {{student.status}}
+            </span>
+            <span *ngSwitchCase="'Regular'" class="badge bg-secondary">
+              {{student.status}}
+            </span>          
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

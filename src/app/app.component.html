@@ -1,16 +1,1 @@
-<div class="container mt-4"> 
-  <table class="table">
-    <thead>
-      <th>Nr°</th>
-      <th>Nombre</th>
-      <th>Carrera</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of studentList; let i = index">
-        <td>{{i + 1}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.degree}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<router-outlet></router-outlet>
